@@ -9,41 +9,38 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Author {
-
+public class Genre {
+	
 	@Id
 	@GeneratedValue
 	private Long id;
-	private String authorName;
+	private String genreName;
 	@ManyToOne
 	private Collection<Post> posts;
 	
-	public Author(String authorName) {
-		this.authorName = authorName;
+	public Genre(String genreName) {
+		this.genreName = genreName;
 		this.posts = new ArrayList<>();
 	}
 	
-	public Author() {
+	public Genre() {
 		
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
-	
-	public String getAuthorName() {
-		return authorName;
+
+	public String getGenreName() {
+		return genreName;
 	}
-	
+
 	public Collection<Post> getPosts() {
 		return posts;
 	}
 
 	@Override
 	public String toString() {
-		return "Author [id=" + id + ", authorName=" + authorName + "]";
+		return "Genre [id=" + id + ", genreName=" + genreName + "]";
 	}
-
-	
 }
-

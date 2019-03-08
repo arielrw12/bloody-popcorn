@@ -1,49 +1,50 @@
 package org.wecancodeit.bloodypopcorn.models;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 
 @Entity
-public class Author {
-
+public class Tag {
+	
 	@Id
 	@GeneratedValue
 	private Long id;
-	private String authorName;
-	@ManyToOne
+	private String tagName;
+	
+	@ManyToMany
 	private Collection<Post> posts;
 	
-	public Author(String authorName) {
-		this.authorName = authorName;
-		this.posts = new ArrayList<>();
+	public Tag(String tagName, Post ...posts) {
+		this.tagName = tagName;
+		this.posts = Arrays.asList(posts);
 	}
 	
-	public Author() {
+	public Tag() {
 		
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
-	
-	public String getAuthorName() {
-		return authorName;
+
+	public String getTagName() {
+		return tagName;
 	}
-	
+
 	public Collection<Post> getPosts() {
 		return posts;
 	}
 
 	@Override
 	public String toString() {
-		return "Author [id=" + id + ", authorName=" + authorName + "]";
+		return "Tag [id=" + id + ", tagName=" + tagName + "]";
 	}
-
+	
 	
 }
-
