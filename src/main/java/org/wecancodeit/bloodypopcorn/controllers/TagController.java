@@ -5,6 +5,8 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.wecancodeit.bloodypopcorn.models.Tag;
 import org.wecancodeit.bloodypopcorn.repositories.AuthorRepository;
 import org.wecancodeit.bloodypopcorn.repositories.GenreRepository;
 import org.wecancodeit.bloodypopcorn.repositories.PostRepository;
@@ -25,9 +27,15 @@ public class TagController {
 	@Resource
 	PostRepository postRepo;
 	
-	@GetMapping("tags/allTags")
+	@GetMapping("/tags/allTags")
 	public String getTagList(Model model) {
 		model.addAttribute("tag", tagRepo.findAll());
 		return "tags/allTags";
+	}
+	
+	@PostMapping("/tags/allTags")
+	public String addTag(String tagName) {
+		tagRepo.save(new Tag(tagName));
+		return "redirect:tags/allTags";
 	}
 }
