@@ -25,9 +25,9 @@ public class TagController {
 	@Resource
 	PostRepository postRepo;
 	
-//	@GetMapping("")
-//	public String getTagList(Model model) {
-//		model.addAttribute("tag", tagRepo.findAll());
-//		return "";
-//	}
+	@GetMapping("tags/allTags")
+	public String getTagList(Model model) {
+		model.addAttribute("tag", tagRepo.findAll());
+		return "tags/allTags";
+	}
 }
