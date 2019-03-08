@@ -15,7 +15,7 @@ public class Author {
 	@GeneratedValue
 	private Long id;
 	private String authorName;
-	@ManyToMany(mappedBy="posts")
+	@ManyToMany(mappedBy="authors")
 	private Collection<Post> posts;
 	
 	public Author(String authorName) {
