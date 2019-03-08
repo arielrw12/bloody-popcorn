@@ -24,9 +24,9 @@ public class PostController {
 	@Resource
 	PostRepository postRepo;
 	
-	@GetMapping("")
-	public String getPostList(Model model) {
-		model.addAttribute("post", postRepo.findAll());
-		return "";
-	}
+//	@GetMapping("")
+//	public String getPostList(Model model) {
+//		model.addAttribute("post", postRepo.findAll());
+//		return "";
+//	}
 }

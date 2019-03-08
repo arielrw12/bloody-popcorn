@@ -15,7 +15,7 @@ public class Genre {
 	@GeneratedValue
 	private Long id;
 	private String genreName;
-	@OneToMany(mappedBy="posts")
+	@OneToMany(mappedBy="genre")
 	private Collection<Post> posts;
 	
 	public Genre(String genreName) {
