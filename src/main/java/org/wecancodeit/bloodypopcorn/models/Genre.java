@@ -6,7 +6,7 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Genre {
@@ -15,7 +15,7 @@ public class Genre {
 	@GeneratedValue
 	private Long id;
 	private String genreName;
-	@ManyToOne
+	@OneToMany(mappedBy="posts")
 	private Collection<Post> posts;
 	
 	public Genre(String genreName) {

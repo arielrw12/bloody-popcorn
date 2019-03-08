@@ -23,7 +23,7 @@ public class Post {
 	private String body;
 	private String postDate;
 	
-	@OneToMany
+	@ManyToMany
 	private Collection<Author> authors;
 	
 	@ManyToOne

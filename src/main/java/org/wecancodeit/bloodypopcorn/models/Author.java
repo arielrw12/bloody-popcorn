@@ -6,7 +6,7 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Author {
@@ -15,12 +15,12 @@ public class Author {
 	@GeneratedValue
 	private Long id;
 	private String authorName;
-	@ManyToOne
+	@ManyToMany(mappedBy="posts")
 	private Collection<Post> posts;
 	
 	public Author(String authorName) {
 		this.authorName = authorName;
-		this.posts = new ArrayList<>(); //might not need?
+		this.posts = new ArrayList<>(); 
 	}
 	
 	public Author() {
