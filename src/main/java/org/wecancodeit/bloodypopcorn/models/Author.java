@@ -20,7 +20,7 @@ public class Author {
 	
 	public Author(String authorName) {
 		this.authorName = authorName;
-		this.posts = new ArrayList<>();
+		this.posts = new ArrayList<>(); //might not need?
 	}
 	
 	public Author() {
