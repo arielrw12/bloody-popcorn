@@ -35,7 +35,10 @@ public class TagController {
 	
 	@PostMapping("/tags/allTags")
 	public String addTag(String tagName) {
-		tagRepo.save(new Tag(tagName));
-		return "redirect:tags/allTags";
+		Tag tag1 = tagRepo.findByTagName(tagName);
+		if (tag1 == null) {
+			tag1 = tagRepo.save(new Tag(tagName));
+		}
+		return "redirect:/tags/allTags";
 	}
 }
