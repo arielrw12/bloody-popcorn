@@ -35,9 +35,10 @@ public class Initializer implements CommandLineRunner {
 		
 		Genre genre1 = genreRepo.save(new Genre("Slasher"));
 		
-		Tag tag1 = tagRepo.save(new Tag("gory"));
+		Post post1 = postRepo.save(new Post("Awesome movie", "The movie was so cool. It was great. V scary.", "May 8th", genre1, author1));
 		
-		Post post1 = postRepo.save(new Post("Awesome movie", "The movie was so cool. It was great. V scary.", "May 8th", genre1, tag1));
+		tagRepo.save(new Tag("gory", post1));
+		
 	}
 	
 	

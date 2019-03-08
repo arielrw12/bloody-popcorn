@@ -36,69 +36,42 @@ public class Post {
 		
 	}
 	
-	public Post(String title, String body, String postDate, Genre genre, Tag ...tags) {
+	public Post(String title, String body, String postDate, Genre genre, Author ...authors) {
 		this.title = title;
 		this.body = body;
 		this.postDate = postDate;
-		this.authors = new ArrayList<>(); //?
+//		this.tags = new ArrayList<>(); 
 		this.genre = genre;
-		this.tags = Arrays.asList(tags); //?
+		this.authors = Arrays.asList(authors);
 	}
 
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public String getTitle() {
 		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
 	}
 
 	public String getBody() {
 		return body;
 	}
 
-	public void setBody(String body) {
-		this.body = body;
-	}
-
 	public String getPostDate() {
 		return postDate;
-	}
-
-	public void setPostDate(String postDate) {
-		this.postDate = postDate;
 	}
 
 	public Collection<Author> getAuthors() {
 		return authors;
 	}
 
-	public void setAuthors(Collection<Author> authors) {
-		this.authors = authors;
-	}
 
 	public Genre getGenre() {
 		return genre;
 	}
 
-	public void setGenre(Genre genre) {
-		this.genre = genre;
-	}
-
 	public Collection<Tag> getTags() {
 		return tags;
-	}
-
-	public void setTags(Collection<Tag> tags) {
-		this.tags = tags;
 	}
 
 	@Override

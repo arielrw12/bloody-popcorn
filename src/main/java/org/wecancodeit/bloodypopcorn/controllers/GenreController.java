@@ -25,9 +25,9 @@ public class GenreController {
 	@Resource
 	PostRepository postRepo;
 	
-//	@GetMapping("")
-//	public String getGenreList(Model model) {
-//		model.addAttribute("genre", genreRepo.findAll());
-//		return "";
-//	}
+	@GetMapping("/genre/allGenres")
+	public String getGenreList(Model model) {
+		model.addAttribute("genre", genreRepo.findAll());
+		return "genre/allGenres";
+	}
 }
