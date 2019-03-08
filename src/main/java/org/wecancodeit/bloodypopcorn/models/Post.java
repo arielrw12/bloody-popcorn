@@ -3,6 +3,7 @@ package org.wecancodeit.bloodypopcorn.models;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +23,6 @@ public class Post {
 	@Lob
 	private String body;
 	private String postDate;
-	
 	@ManyToMany
 	private Collection<Author> authors;
 	
@@ -36,12 +36,12 @@ public class Post {
 		
 	}
 	
-	public Post(String title, String body, String postDate, Genre genre, Author ...authors) {
+	public Post(String title, String body, String postDate, Genre genre, Tag tag, Author ...authors) {
 		this.title = title;
 		this.body = body;
 		this.postDate = postDate;
-//		this.tags = new ArrayList<>(); 
 		this.genre = genre;
+		this.tags = Arrays.asList(tag); 
 		this.authors = Arrays.asList(authors);
 	}
 
@@ -65,19 +65,25 @@ public class Post {
 		return authors;
 	}
 
-
 	public Genre getGenre() {
 		return genre;
 	}
 
-	public Collection<Tag> getTags() {
+//	public Collection<Tag> getTags() {
+//		return tags;
+//	}
+	
+	public Collection<Tag> getTag() {
 		return tags;
 	}
 
 	@Override
 	public String toString() {
-		return "Post [id=" + id + ", title=" + title + ", body=" + body + ", postDate=" + postDate + ", authors="
-				+ authors + ", genre=" + genre + ", tags=" + tags + "]";
+		return "Post [id=" + id + ", title=" + title + ", body=" + body + ", postDate=" + postDate + ", tag=" + tags
+				+ ", authors=" + authors + ", genre=" + genre + "]";
 	}
+
+	
+
 
 }

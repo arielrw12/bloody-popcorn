@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    The right page.
+    <ul th:each="author : ${author}">
+    	<li><h2 th:text= "${author.authorName}"></h2></li>
+    </ul>
 </body>
 </html>

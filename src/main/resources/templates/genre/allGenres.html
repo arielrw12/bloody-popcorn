@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    The right genre page.
+    <ul th:each="genre : ${genre}">
+    	<li><h2 th:text="${genre.genreName}"></h2></li>
+    </ul>
 </body>
 </html>
