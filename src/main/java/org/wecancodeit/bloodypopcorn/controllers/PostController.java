@@ -39,8 +39,9 @@ public class PostController {
 	
 	@PostMapping("/post/allPosts")
 	public String addPost(
-		@PathVariable("post") Long id,
-		// may need to take post out of above line, trying to use it to fix
+		@PathVariable Long id,
+		// ("post")
+		// may need to add above post line, trying to use it to fix
 		// Missing URI template variable 'post' for method parameter of type Long error
 		String title,
 		String body,
@@ -51,8 +52,14 @@ public class PostController {
 		) {
 		Tag tag1 = tagRepo.findById(id).get();
 		Author author1 = authorRepo.findById(id).get();
-		postRepo.save(new Post(title, body, genre, tag, author));
+		postRepo.save(new Post(title, body, genre, tag1, author1));
 		return "redirect:/post/allPosts"; 
+	}
+	
+	@GetMapping("/post/{postId}")
+	public String getPostById(@PathVariable Long postId, Model model) {
+		model.addAttribute("post", postRepo.findById(postId).get());
+		return "post/individualPost";
 	}
 			
 			

@@ -4,9 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Individual Post</title>
 </head>
 <body>
-    
+    <ul>
+        <li><h2 th:text="${post.title}">Default title</h2></li>
+        <li><h3 th:text="${post.body}">Default body</h3></li>
+        <li><h3 th:text="${post.authors}">Default author</h3></li>
+        <li><h3 th:text="${post.genre}">Default genre</h3></li>
+        <li><h3 th:text="${post.tag}">Default tag</h3></li>
+        <li><h3 th:text="${post.date}">Default</h3></li>
+    </ul>
 </body>
 </html>
