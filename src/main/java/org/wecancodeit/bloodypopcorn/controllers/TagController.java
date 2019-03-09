@@ -43,9 +43,10 @@ public class TagController {
 		return "redirect:/tags/allTags";
 	}
 	
-	@GetMapping("/tags/{tagId}/")
-	public String getPostsByTag(@PathVariable Long tagId, Model model) {
-		model.addAttribute("tag", tagRepo.findById(tagId));
+	@GetMapping("/tags/{tagId}")
+	public String getTagById(@PathVariable Long tagId, Model model) {
+		model.addAttribute("tag", tagRepo.findById(tagId).get());
 		return "tags/individualTag";
 	}
+	
 }

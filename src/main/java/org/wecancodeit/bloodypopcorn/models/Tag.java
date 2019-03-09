@@ -16,12 +16,12 @@ public class Tag {
 	private Long id;
 	private String tagName;
 	
-	@ManyToMany
+	@ManyToMany(mappedBy="tags")
 	private Collection<Post> posts;
 	
 	public Tag(String tagName, Post ...posts) {
 		this.tagName = tagName;
-//		this.posts = Arrays.asList(posts);
+		this.posts = Arrays.asList(posts);
 	}
 	
 	public Tag() {
