@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.wecancodeit.bloodypopcorn.models.Author;
 import org.wecancodeit.bloodypopcorn.models.Genre;
@@ -42,9 +43,11 @@ public class AuthorController {
 		}
 		return "redirect:/author/allAuthors";
 	}
-//	@GetMapping("")
-//	public String getPostsByAuthor(@PathVariable Long id, Model model) {
-//		model.addAttribute(attributeName, attributeValue)
-//	}
+	
+	@GetMapping("/author/{authorId}")
+	public String getAuthorById(@PathVariable Long authorId, Model model) {
+		model.addAttribute("author", authorRepo.findById(authorId).get());
+		return "/author/individualAuthor";
+	}
 	
 }
