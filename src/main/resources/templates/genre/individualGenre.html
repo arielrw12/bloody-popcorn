@@ -7,7 +7,7 @@
     <title>Individual Genre</title>
 </head>
 <body>
-	<ul th:each="post : {genre.posts}">
+	<ul th:each="post : ${genre.posts}">
 		<li>
 			<h2 th:text="${post.title}"></h2>
 		</li>

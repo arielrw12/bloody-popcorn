@@ -37,7 +37,7 @@ public class GenreController {
 
 	@GetMapping("/genre/{genreId}")
 	public String getGenreById(@PathVariable Long genreId, Model model) {
-		model.addAttribute("genre", genreRepo.findById(genreId));
+		model.addAttribute("genre", genreRepo.findById(genreId).get());
 		return "genre/individualGenre";
 	}
 		
