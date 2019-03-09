@@ -8,7 +8,9 @@
 </head>
 <body>
     <ul th:each="genre : ${genre}">
-    	<li><h2 th:text="${genre.genreName}"></h2></li>
+    	<li>
+    		<h2><a th:text="${genre.genreName}" th:href="@{|/genre/${genre.id}|}">Default</a></h2>
+    	</li>
     </ul>
 </body>
 </html>
