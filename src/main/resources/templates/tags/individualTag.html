@@ -25,15 +25,11 @@
         <li>
             <h2 th:text="${post.title}"></h2>
         </li>
-        <li>
-            <h3 th:text="${post.body}"></h3>
-        </li>
-        <li>
-            <h3 th:text="${post.postDate}"></h3>
-        </li>
-        <li>
-            <h3 th:text="${post.authors}"></h3>
-        </li>
+
+        <li><h3 th:text="${post.body}"></h3></li>
+        <li><h3 th:text="${post.date}"></h3></li>
+        <li><h3 th:text="${post.authors}"></h3></li>
+        <li><h3 th:text="${post.genre}"></h3></li>
 
     </ul>
     <footer class="footer">

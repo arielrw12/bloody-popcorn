@@ -21,13 +21,26 @@
             </ul>
         </nav>
     </header>
-    <footer class="footer">
+
+    <ul th:each="post : ${author.posts}">
+        <li>
+            <h2 th:text="${post.title}"></h2>
+        </li>
+        <li><h3 th:text="${post.body}"></h3></li>
+        <li><h3 th:text="${post.date}"></h3></li>
+        <li><h3 th:text="${post.genre}"></h3></li>
+        <li><h3 th:text="${post.tags}"></h3></li>
+        
+
+    </ul>
+ <footer class="footer">
         <div class="footer__content">
             <p>This site was made using Visual Studio Code,
                 Submlime and Gimp. <br>Icons are by <a href="https://fontawesome.com/">Font Awesome.</a></p>
             <p>© 2019 Made in the USA</p>
         </div>
     </footer>
+
 </body>
 
 </html>
