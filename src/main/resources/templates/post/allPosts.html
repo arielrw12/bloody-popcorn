@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul th:each="post : ${post}">
+        <li><h2 th:text="${post.title}"></h2></li>
+        <li><h3 th:text="${post.body}"></h3></li>
+        <li><h3 th:text="${post.authors}"></h3></li>
+        <!-- <li><h3 th:text="${post.date}"></h3></li> -->
+        <li><h3 th:text="${post.genre}"></h3></li>
+        <li><h3 th:text="${post.tag}"></h3></li>
+    </ul>
+</body>
+</html>
