@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.wecancodeit.bloodypopcorn.models.Tag;
 import org.wecancodeit.bloodypopcorn.repositories.AuthorRepository;
@@ -40,5 +41,11 @@ public class TagController {
 			tag1 = tagRepo.save(new Tag(tagName));
 		}
 		return "redirect:/tags/allTags";
+	}
+	
+	@GetMapping("/tags/{tagId}/")
+	public String getPostsByTag(@PathVariable Long tagId, Model model) {
+		model.addAttribute("tag", tagRepo.findById(tagId));
+		return "tags/individualTag";
 	}
 }

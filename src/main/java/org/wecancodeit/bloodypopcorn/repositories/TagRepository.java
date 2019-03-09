@@ -9,4 +9,7 @@ public interface TagRepository extends CrudRepository<Tag, Long> {
 
 	Tag findByTagName(String tagName);
 
+	Object findAllById(Long tagId);
+
+
 }
