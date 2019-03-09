@@ -7,4 +7,6 @@ import org.wecancodeit.bloodypopcorn.models.Author;
 @Repository
 public interface AuthorRepository extends CrudRepository<Author, Long> {
 
+	Author findByAuthorName(String authorName);
+
 }

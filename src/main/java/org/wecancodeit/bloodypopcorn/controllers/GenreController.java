@@ -5,7 +5,6 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.wecancodeit.bloodypopcorn.repositories.AuthorRepository;
 import org.wecancodeit.bloodypopcorn.repositories.GenreRepository;
 import org.wecancodeit.bloodypopcorn.repositories.PostRepository;
@@ -32,10 +31,19 @@ public class GenreController {
 		return "genre/allGenres";
 	}
 	
+
 	@GetMapping("/genre/{genreId}")
 	public String getGenreById(@PathVariable Long genreId, Model model) {
 		model.addAttribute("genre", genreRepo.findById(genreId));
 		return "genre/individualGenre";
 		
+	@PostMapping("/genre/allGenres")
+	public String addGenre(String genreName) {
+		Genre genre1 = genreRepo.findByGenreName(genreName);
+		if (genre1 == null) {
+			genre1 = genreRepo.save(new Genre(genreName));
+		}
+		return "redirect:/genre/allGenres";
+
 	}
 }

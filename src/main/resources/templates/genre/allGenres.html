@@ -12,5 +12,14 @@
     		<h2><a th:text="${genre.genreName}" th:href="@{|/genre/${genre.id}|}">Default</a></h2>
     	</li>
     </ul>
+
+    <form action="/genre/allGenres" method="POST">
+					
+		<label>Genre name:<input type="text" name="genreName" placeholder="Example: Vampires, Paranormal..." /></label>
+				
+		<button type="submit">Submit</button>
+
+	</form>
+
 </body>
 </html>
