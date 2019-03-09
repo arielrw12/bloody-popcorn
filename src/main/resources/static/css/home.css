@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    font-size: 16px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -85,7 +84,7 @@ li {
 }
 
 .header__site-name {
-    margin-left: 3rem;
+    margin-left: 2rem;
     background-color: black;
     border-radius: 15px;
     padding: 6px;
@@ -106,6 +105,32 @@ li {
         flex-direction: column;
         justify-content: space-evenly;
     }
+}
+
+.footer {
+    /* background-image: url("../images/blood.png"); */
+    background-color: #b50303;
+    min-height: 5rem;
+    min-width: 100%;
+    text-align: center; 
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    position: absolute;
+    bottom: 0;
+}
+
+.footer__content {
+    background-color: white;
+    border-radius: 15px;
+    margin: 0;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    padding: 0 6px;
+    font-size: 12px;
 }
 
 
