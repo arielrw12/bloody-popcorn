@@ -1,29 +1,124 @@
 * {
     margin: 0;
     padding: 0;
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-header {
+a {
+    text-decoration: none;
+    color: black;
+}
+
+li {
+    list-style: none;
+}
+
+.header__main {
     background-image: url("../images/blood.png");
     background-color: red;
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover; 
-    height: 7rem;
-}
-
-.header__bar {
+    min-height: 5rem;
+    min-width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
 }
 
-.header__bar--text {
+.header__nav {
+
+}
+
+.header__nav-author{
+    margin-right: 2rem;
+    background-color: white;
+    border-radius: 15px;
+    padding: 6px;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    font-weight: bold;
+}
+
+.header__nav-genre {
+    margin-right: 2rem;
+    background-color: white;
+    border-radius: 15px;
+    padding: 6px;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    font-weight: bold;
+}
+
+.header__nav--items {
+    margin-right: 3rem;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.header__nav-post {
+    margin-right: 2rem;
+    background-color: white;
+    border-radius: 15px;
+    padding: 6px;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    font-weight: bold;
+}
+
+.header__nav-tag {
+    background-color: white;
+    border-radius: 15px;
+    padding: 6px;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    font-weight: bold;
+}
+
+.header__site-name {
+    margin-left: 3rem;
     background-color: black;
-    padding: 10px;
+    border-radius: 15px;
+    padding: 6px;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    font-weight: bold;
+    font-size: 2rem;
     color: white;
+    display: inline-block;
 }
 
-nav {
-
+@media screen and (max-width: 1091px) {
+    .header__nav--items {
+        margin-right: .5rem;
+    }
+    .header__site-name {
+        margin-left: .5rem;
+    }
 }
+
+@media screen and (min-width: 782px) {
+    p1.hide {
+        display: none;
+    }
+    .button {
+        display: none;
+    }
+}
+
+.hide {
+    display: none;
+  }
+
+
+
