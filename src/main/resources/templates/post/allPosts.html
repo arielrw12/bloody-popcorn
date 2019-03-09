@@ -7,13 +7,64 @@
     <title>Document</title>
 </head>
 <body>
+    <h2>Add a blog about a horror movie here!</h2>
+
+    <!-- action="/post/allPosts" --> 
+
+    <form th:action="@{|/post/${allPosts}|}" method="POST">
+       
+        <Label>Blog title:<input type="text" name="title" placeholder="Title" /></Label>
+                        
+        <Label>Blog content:<input type="text" name="body" placeholder="Type blog post here" /></Label>
+
+        <!-- Add LocalDateTime if that's how it works? -->
+
+        <fieldset>
+            <label>Select Authors
+                <select name="author">  
+              <!--   multiple="multiple" goes in above line-->
+                    <option th:each="author : ${author}" 
+                        th:value="${author.id}" 
+                        th:text="#{${author.authorName}}">Author</option>
+               <!--  above line is experimental with # -->
+                </select>
+            </label>
+        </fieldset>
+        
+        <fieldset>
+            <label>Select Genre
+                <select name="genre">  
+                    <option th:each="genre : ${genre}" 
+                        th:value="${genre.id}" 
+                        th:text="${genre.genreName}">Genre</option>
+                </select>
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <label>Select Tags
+                <select name="tag">  
+              <!--   multiple="multiple" goes in above line -->
+                    <option th:each="tag : ${tag}" 
+                        th:value="${tag.id}" 
+                        th:text="${tag.tagName}">Tag</option>
+                </select>
+            </label>
+        </fieldset>
+
+        <button type="submit">SUBMIT BLOG POST</button>
+                  
+    </form>
+
+    <h2>Check out these past posts to find your next bloody good movie.</h2>
+
     <ul th:each="post : ${post}">
-        <li><h2 th:text="${post.title}"></h2></li>
-        <li><h3 th:text="${post.body}"></h3></li>
-        <li><h3 th:text="${post.authors}"></h3></li>
-        <!-- <li><h3 th:text="${post.date}"></h3></li> -->
-        <li><h3 th:text="${post.genre}"></h3></li>
-        <li><h3 th:text="${post.tag}"></h3></li>
+        <li><h2 th:text="${post.title}">Default title</h2></li>
+        <li><h3 th:text="${post.body}">Default body</h3></li>
+        <li><h3 th:text="${post.authors}">Default author</h3></li>
+       <!--  <li><h3 th:text="${post.date}"></h3></li> -->
+        <li><h3 th:text="${post.genre}">Default genre</h3></li>
+        <li><h3 th:text="${post.tag}">Default tag</h3></li>
         <li><h3 th:text="${post.date}">Default</h3></li>
     </ul>
 </body>
