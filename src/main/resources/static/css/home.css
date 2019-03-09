@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-image: url("../images/blood.png");
+    background-color: red;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    height: 7rem;
+}
+
+.header__bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.header__bar--text {
+    background-color: black;
+    padding: 10px;
+    color: white;
+}
+
+nav {
+
+}
