@@ -16,7 +16,7 @@ public class Tag {
 	private Long id;
 	private String tagName;
 	
-	@ManyToMany
+	@ManyToMany(mappedBy="tags")
 	private Collection<Post> posts;
 	
 	public Tag(String tagName, Post ...posts) {

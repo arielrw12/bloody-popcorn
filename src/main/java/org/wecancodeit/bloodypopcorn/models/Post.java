@@ -1,9 +1,8 @@
 package org.wecancodeit.bloodypopcorn.models;
 
-import java.util.ArrayList;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Post {
@@ -22,7 +20,7 @@ public class Post {
 	private String title;
 	@Lob
 	private String body;
-	private String postDate;
+	private LocalDateTime date;
 	@ManyToMany
 	private Collection<Author> authors;
 	
@@ -36,13 +34,21 @@ public class Post {
 		
 	}
 	
-	public Post(String title, String body, String postDate, Genre genre, Tag tag, Author ...authors) {
+	public Post(String title, String body, Genre genre, Tag tag, Author ...authors) {
 		this.title = title;
 		this.body = body;
-		this.postDate = postDate;
+		this.date = LocalDateTime.now();
 		this.genre = genre;
 		this.tags = Arrays.asList(tag); 
 		this.authors = Arrays.asList(authors);
+	}
+
+	public LocalDateTime getDate() {
+		return date;
+	}
+
+	public Collection<Tag> getTags() {
+		return tags;
 	}
 
 	public Long getId() {
@@ -55,10 +61,6 @@ public class Post {
 
 	public String getBody() {
 		return body;
-	}
-
-	public String getPostDate() {
-		return postDate;
 	}
 
 	public Collection<Author> getAuthors() {
@@ -79,9 +81,10 @@ public class Post {
 
 	@Override
 	public String toString() {
-		return "Post [id=" + id + ", title=" + title + ", body=" + body + ", postDate=" + postDate + ", tag=" + tags
-				+ ", authors=" + authors + ", genre=" + genre + "]";
+		return "Post [id=" + id + ", title=" + title + ", body=" + body + ", date=" + date + ", authors=" + authors
+				+ ", genre=" + genre + ", tags=" + tags + "]";
 	}
+
 
 	
 
