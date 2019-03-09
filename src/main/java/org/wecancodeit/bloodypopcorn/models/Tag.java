@@ -21,7 +21,7 @@ public class Tag {
 	
 	public Tag(String tagName, Post ...posts) {
 		this.tagName = tagName;
-//		this.posts = Arrays.asList(posts);
+		this.posts = Arrays.asList(posts);
 	}
 	
 	public Tag() {

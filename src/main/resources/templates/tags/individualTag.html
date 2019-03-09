@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    <ul th:each= "post : ${tag.posts}">
-    <li><h3 th:text="${post.title}"></h3></li>
-    <li><h3 th:text="${post.body}"></h3></li>
-</ul>
+    <ul th:each="post : ${tag.posts}">
+        <li>
+            <h2 th:text="${post.title}"></h2>
+        </li>
+        <!-- <li><h3 th:text="${post.body}"></h3></li> -->
+        <li>More text.</li>
+    </ul>
+    <h3>I'm adding text.</h3>
+
+    <ul th:each="post : ${tag.posts}">
+        <li>Some text to test new ul element</li>
+        <li th:text="${post.title}"></li>
+    </ul>
 </body>
+
 </html>
-
-
-<!-- <ul th:each= "park : ${category.parks}">
-    <li>
-        <h3 class="parkName"><a th:text = "${park.parkName}" th:href="@{|/park/${park.id}|}">Default</a></h3>
-    </li>
-    <li>
-        <h3><a id="location" th:text = "${park.location}" th:href="@{|/categories/${park.location}|}">Default</a></h3>
-    </li> -->

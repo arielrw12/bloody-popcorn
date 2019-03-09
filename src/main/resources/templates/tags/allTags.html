@@ -8,7 +8,7 @@
 </head>
 <body>
     <ul th:each="tag : ${tag}">
-    	<li><h2><a th:text="${tag.tagName}" href="@{|/tags/${tag.id}|}">Default</a></h2></li>
+    	<li><h2><a th:text="${tag.tagName}" th:href="@{|/tags/${tag.id}|}">Default</a></h2></li>
     </ul>
 
     <form action="/tags/allTags" method="POST">
