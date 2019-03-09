@@ -98,27 +98,18 @@ li {
     display: inline-block;
 }
 
-@media screen and (max-width: 1091px) {
+@media screen and (max-width: 780px) {
     .header__nav--items {
-        margin-right: .5rem;
-    }
-    .header__site-name {
-        margin-left: .5rem;
-    }
-}
-
-@media screen and (min-width: 782px) {
-    p1.hide {
-        display: none;
-    }
-    .button {
-        display: none;
+        margin-right: 3rem;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
     }
 }
 
-.hide {
-    display: none;
-  }
+
+
 
 
 
