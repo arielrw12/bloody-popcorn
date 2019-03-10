@@ -43,6 +43,7 @@ public class PostController {
 	}
 	
 	@PostMapping("/post/allPosts")
+
 	public String addPost(String title, String body, Long genreId, Long tagId, Long authorId, Long authorId2) {
 		Genre genre = genreRepo.findById(genreId).get();
 		Tag tag = tagRepo.findById(tagId).get();
