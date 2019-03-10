@@ -12,8 +12,8 @@
 </head>
 
 <body>
-  
-      <header class="header__main">
+
+    <header class="header__main">
         <a href="/" class="header__site-name">BLOODY&nbsp;POPCORN</a></h1>
         <nav class="header__nav">
             <ul class="header__nav--items">
@@ -24,15 +24,49 @@
             </ul>
         </nav>
     </header>
-  
+
     <ul>
-        <li><h2 th:text="${post.title}">Default title</h2></li>
-        <li><h3 th:text="${post.body}">Default body</h3></li>
-        <li><h3 th:text="${post.authors}">Default author</h3></li>
-        <li><h3 th:text="${post.genre}">Default genre</h3></li>
-        <li><h3 th:text="${post.tag}">Default tag</h3></li>
-        <li><h3 th:text="${post.date}">Default</h3></li>
+        <li>
+            <h2 th:text="${post.title}">Default title</h2>
+        </li>
+        <li>
+            <h3 th:text="${post.body}">Default body</h3>
+        </li>
+        <ul th:each="author : ${post.authors}">
+            <li th:text="${author.authorName}">Default tag</li>
+        </ul>
+        <li>
+            <h3 th:text="${post.genre}">Default genre</h3>
+        </li>
+        <ul th:each="tag : ${post.tags}">
+            <li th:text="${tag.tagName}">Default tag</li>
+        </ul>
+        <li>
+            <h3 th:text="${post.date}">Default</h3>
+        </li>
     </ul>
+
+    <h3>Add another tag to this post!</h3>
+    <form th:action="@{|/post/${post.id}|}" method="POST">
+        <select name="tagId">
+            <option value="" disabled selected hidden>Select a Tag...</option>
+            <option th:each="tag : ${tag}" th:value="${tag.id}" th:text="${tag.tagName}">
+                Tag</option>
+        </select>
+
+        <input type="submit" name="submit" value="submit">
+    </form>
+
+    <h3>Add another author to this post!</h3>
+    <form th:action="@{|/post/${post.id}|}" method="POST">
+        <select name="authorId">
+            <option value="" disabled selected hidden>Select a Tag...</option>
+            <option th:each="author : ${author}" th:value="${author.id}" th:text="${author.authorName}">
+                Author</option>
+        </select>
+
+        <input type="submit" name="submit" value="submit">
+    </form>
 
     <footer class="footer">
         <div class="footer__content">
