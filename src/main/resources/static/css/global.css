@@ -9,6 +9,10 @@ a {
     color: black;
 }
 
+body {
+    position: relative;
+}
+
 li {
     list-style: none;
 }
