@@ -1,5 +1,7 @@
 package org.wecancodeit.bloodypopcorn.controllers;
 
+import java.time.LocalDateTime;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -34,25 +36,21 @@ public class PostController {
 	@GetMapping("/post/allPosts")
 	public String getPostList(Model model) {
 		model.addAttribute("post", postRepo.findAll());
+		model.addAttribute("genre", genreRepo.findAll());
+		model.addAttribute("tag", tagRepo.findAll());
+		model.addAttribute("author", authorRepo.findAll());
 		return "post/allPosts";
 	}
 	
 	@PostMapping("/post/allPosts")
-	public String addPost(
-		@PathVariable Long id,
-		// ("post")
-		// may need to add above post line, trying to use it to fix
-		// Missing URI template variable 'post' for method parameter of type Long error
-		String title,
-		String body,
-		Genre genre,
-		Tag tag,
-		Author author
-		) {
-		Tag tag1 = tagRepo.findById(id).get();
-		Author author1 = authorRepo.findById(id).get();
-		postRepo.save(new Post(title, body, genre, tag1, author1));
-		return "redirect:/post/allPosts"; 
+
+	public String addPost(String title, String body, Long genreId, Long tagId, Long authorId, Long authorId2) {
+		Genre genre = genreRepo.findById(genreId).get();
+		Tag tag = tagRepo.findById(tagId).get();
+		Author author = authorRepo.findById(authorId).get();
+		Author author2 = authorRepo.findById(authorId2).get();
+		postRepo.save(new Post(title, body, genre, tag, author, author2));
+		return "redirect:/post/allPosts";	
 	}
 	
 	@GetMapping("/post/{postId}")

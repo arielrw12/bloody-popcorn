@@ -8,66 +8,90 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Add a post about a horror movie here!</h2>
 
-    <!-- th:action=@{|/post/${allPosts}|}--> 
+
+   <header class="header__main">
+        <a href="/" class="header__site-name">BLOODY&nbsp;POPCORN</a></h1>
+        <nav class="header__nav">
+            <ul class="header__nav--items">
+                <li class="header__nav-post"><a href="/post/allPosts">All Posts</a></li>
+                <li class="header__nav-genre"><a href="/genre/allGenres">Posts by Genre</a></li>
+                <li class="header__nav-author"><a href="/author/allAuthors">Posts by Author</a></li>
+                <li class="header__nav-tag"><a href="/tags/allTags">Posts by Tag</a></li>
+            </ul>
+        </nav>
+    </header>
+  
+  <h2>Add a post about a horror movie here!</h2>
 
     <form action="/post/allPosts" method="POST">
-       
+
         <Label>Blog title:<input type="text" name="title" placeholder="Title" /></Label>
-                        
+
         <Label>Blog content:<input type="text" name="body" placeholder="Type blog post here" /></Label>
-
-        <!-- Add LocalDateTime if that's how it works? -->
-
-        <fieldset>
-            <label>Select Authors
-                <select name="author">  
-              <!--   multiple="multiple" goes in above line-->
-                    <option th:each="author : ${authors}" 
-                        th:value="${author.id}" 
-                        th:text="#{${author.authorName}}">Author</option>
-               <!--  above line is experimental with # -->
+        <div th:object="${genre}">
+            <select name="genreId">
+                <option value="" disabled selected hidden>Select a Genre...</option>
+                <option th:each="genre : ${genre}" th:value="${genre.id}" th:text="${genre.genreName}">
+                    Genre</option>
+            </select>
+        </div>
+        <div th:object="${tag}">
+            <select name="tagId">
+                <option value="" disabled selected hidden>Select a Tag...</option>
+                <option th:each="tag : ${tag}" th:value="${tag.id}" th:text="${tag.tagName}">
+                    Tag</option>
+            </select>
+        </div>
+        <div th:object="${author}">
+            <select name="authorId">
+                <option value="" disabled selected hidden>Select an Author...</option>
+                <option th:each="author : ${author}" th:value="${author.id}" th:text="${author.authorName}">
+                    Author</option>
+            </select>
+        </div>
+        <div th:object="${author}">
+                <select name="authorId2">
+                    <option value="" disabled selected hidden>Select an Author...</option>
+                    <option th:each="author : ${author}" th:value="${author.id}" th:text="${author.authorName}">
+                        Author</option>
                 </select>
-            </label>
-        </fieldset>
-        
-        <fieldset>
-            <label>Select Genre
-                <select name="genre">  
-                    <option th:each="genre : ${genres}" 
-                        th:value="${id}" 
-                        th:text="${genre.genreName}">Genre</option>
-                </select>
-            </label>
-        </fieldset>
+            </div>
+        <input type="submit" name="submit" value="submit">
 
-        <fieldset>
-            <label>Select Tags
-                <select name="tag">  
-              <!--   multiple="multiple" goes in above line -->
-                    <option th:each="tag : ${tags}" 
-                        th:value="${tag.id}" 
-                        th:text="${tag.tagName}">Tag</option>
-                </select>
-            </label>
-        </fieldset>
-
-        <Label>Insert date:<input type="datetime-local" name="date" /></Label>
-
-        <button type="submit">SUBMIT BLOG POST</button>
-                  
     </form>
 
     <h2>Check out these past posts to find your next bloody good movie.</h2>
 
     <ul th:each="post : ${post}">
-        <li><h3><a th:text="${post.title}" th:href="@{|/post/${post.id}|}">Default title</a></h3></li>
-        <li><h4 th:text="${post.body}">Default body</h4></li>
-        <li><h4 th:text="${post.authors}">Default author</h4></li>
-        <li><h4 th:text="${post.genre}">Default genre</h4></li>
-        <li><h4 th:text="${post.tag}">Default tag</h4></li>
-        <li><h4 th:text="${post.date}">Default</h4></li>
+
+        <li>
+            <h3><a th:text="${post.title}" th:href="@{|/post/${post.id}|}">Default title</a></h3>
+        </li>
+        <li>
+            <h4 th:text="${post.body}">Default body</h4>
+        </li>
+        <li>
+            <h4 th:text="${post.authors}">Default author</h4>
+        </li>
+        <li>
+            <h4 th:text="${post.genre}">Default genre</h4>
+        </li>
+        <li>
+            <h4 th:text="${post.tag}">Default tag</h4>
+        </li>
+        <li>
+            <h4 th:text="${post.date}">Default</h4>
+        </li>
     </ul>
+  
+    <footer class="footer">
+        <div class="footer__content">
+            <p>This site was made using Visual Studio Code,
+                Submlime and Gimp. <br>Icons are by <a href="https://fontawesome.com/">Font Awesome.</a></p>
+            <p>© 2019 Made in the USA</p>
+        </div>
+    </footer>
+
 </body>
 </html>

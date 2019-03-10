@@ -12,8 +12,5 @@ public interface TagRepository extends CrudRepository<Tag, Long> {
 	Tag findByTagName(String tagName);
 
 	Optional<Tag> findById(Long tagId);
-	
-	
-
-
+		
 }
