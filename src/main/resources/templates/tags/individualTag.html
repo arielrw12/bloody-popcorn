@@ -23,13 +23,12 @@
     </header>
     <ul th:each="post : ${tag.posts}">
         <li>
-            <h2 th:text="${post.title}"></h2>
+            <h2><a th:text="${post.title}" th:href="@{|/post/${post.id}|}">Default</a></h2>
         </li>
-
-        <li><h3 th:text="${post.body}"></h3></li>
-        <li><h3 th:text="${post.date}"></h3></li>
-        <li><h3 th:text="${post.authors}"></h3></li>
-        <li><h3 th:text="${post.genre}"></h3></li>
+        <li><h3 th:text="${post.body}">Default</h3></li>
+        <li><h3 th:text="${post.authors}">Default</h3></li>
+        <li><h3 th:text="${post.genre}">Default</h3></li>
+        <li><h3 th:text="${post.formattedStringDate}">Default</h3></li>
 
     </ul>
     <footer class="footer">

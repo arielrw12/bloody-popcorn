@@ -28,6 +28,10 @@
 			<li>
 				<h2><a th:text="${post.title}" th:href="@{|/post/${post.id}|}">Default</a></h2>
 			</li>
+			<li><h3 th:text="${post.body}">Default</h3></li>
+			<li><h3 th:text="${post.authors}">Default</h3></li>
+	        <li><h3 th:text="${post.tags}">Default</h3></li>
+	        <li><h3 th:text="${post.formattedStringDate}">Default</h3></li>
 		</ul>
 	</section>
  
