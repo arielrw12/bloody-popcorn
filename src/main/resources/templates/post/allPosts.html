@@ -65,7 +65,7 @@
             <ul th:each="post : ${post}" class="posts">
                 <li>
                     <h3>
-                        <a th:text="${post.title}" th:href="@{|/post/${post.id}|}">Default title
+                        <a th:text="${post.title}" th:href="@{|/post/${post.id}|}" class="title">Default title
                         </a>
                     </h3>
                 </li>
@@ -75,22 +75,22 @@
                     </li>
                 </figure> -->
                 <li>
-                    <h4 th:text="${#strings.substring(post.body,0,4)} ">Default body</h4><h4>...</h4>
+                    <h4 th:text="${#strings.substring(post.body,0,4)}" class="body">Default body</h4><h4>...</h4>
                 </li>
                 <h3>Post authors:</h3>
                 <ul th:each="author : ${post.authors}">
-                    <li th:text="${author.authorName}">Default tag</li>
+                    <li th:text="${author.authorName}" class="author">Default tag</li>
                 </ul>
                 <h3>Genre:</h3>
                 <li>
-                    <h4 th:text="${post.genre}">Default genre</h4>
+                    <h4 th:text="${post.genre}" class="genre">Default genre</h4>
                 </li>
                 <h3>Tags:</h3>
                 <ul th:each="tag : ${post.tags}">
-                    <li th:text="${tag.tagName}">Default tag</li>
+                    <li th:text="${tag.tagName}" class="tag">Default tag</li>
                 </ul>
                 <li>
-                    <h4 th:text="${post.formattedStringDate}">Default</h4>
+                    <h4 th:text="${post.formattedStringDate}" class="date">Default</h4>
                 </li>
             </ul>
         </article>
