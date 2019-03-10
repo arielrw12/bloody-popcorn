@@ -43,11 +43,12 @@ public class PostController {
 	}
 	
 	@PostMapping("/post/allPosts")
-	public String addPost(String title, String body, Long genreId, Long tagId, Long authorId) {
+	public String addPost(String title, String body, Long genreId, Long tagId, Long authorId, Long authorId2) {
 		Genre genre = genreRepo.findById(genreId).get();
 		Tag tag = tagRepo.findById(tagId).get();
 		Author author = authorRepo.findById(authorId).get();
-		postRepo.save(new Post(title, body, genre, tag, author));
+		Author author2 = authorRepo.findById(authorId2).get();
+		postRepo.save(new Post(title, body, genre, tag, author, author2));
 		return "redirect:/post/allPosts";	
 	}
 	

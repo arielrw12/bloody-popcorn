@@ -32,22 +32,32 @@
         <Label>Blog content:<input type="text" name="body" placeholder="Type blog post here" /></Label>
         <div th:object="${genre}">
             <select name="genreId">
+                <option value="" disabled selected hidden>Select a Genre...</option>
                 <option th:each="genre : ${genre}" th:value="${genre.id}" th:text="${genre.genreName}">
                     Genre</option>
             </select>
         </div>
         <div th:object="${tag}">
             <select name="tagId">
+                <option value="" disabled selected hidden>Select a Tag...</option>
                 <option th:each="tag : ${tag}" th:value="${tag.id}" th:text="${tag.tagName}">
                     Tag</option>
             </select>
         </div>
         <div th:object="${author}">
             <select name="authorId">
+                <option value="" disabled selected hidden>Select an Author...</option>
                 <option th:each="author : ${author}" th:value="${author.id}" th:text="${author.authorName}">
                     Author</option>
             </select>
         </div>
+        <div th:object="${author}">
+                <select name="authorId2">
+                    <option value="" disabled selected hidden>Select an Author...</option>
+                    <option th:each="author : ${author}" th:value="${author.id}" th:text="${author.authorName}">
+                        Author</option>
+                </select>
+            </div>
         <input type="submit" name="submit" value="submit">
     </form>
 
