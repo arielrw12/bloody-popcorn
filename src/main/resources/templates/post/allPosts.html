@@ -75,7 +75,7 @@
                     </li>
                 </figure> -->
                 <li>
-                    <h4 th:text="${#strings.substring(post.body,0,4)}" class="body">Default body</h4><h4>...</h4>
+                    <h4 th:text="${#strings.substring(post.body,0,100)}" class="body">Default body</h4><h4>...</h4>
                 </li>
                 <h3>Post authors:</h3>
                 <ul th:each="author : ${post.authors}">
