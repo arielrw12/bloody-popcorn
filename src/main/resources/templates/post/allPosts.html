@@ -7,10 +7,10 @@
     <link rel="stylesheet" type="text/css" href="/css/global.css">
     <title>Document</title>
 </head>
+
 <body>
 
-
-   <header class="header__main">
+    <header class="header__main">
         <a href="/" class="header__site-name">BLOODY&nbsp;POPCORN</a></h1>
         <nav class="header__nav">
             <ul class="header__nav--items">
@@ -21,70 +21,76 @@
             </ul>
         </nav>
     </header>
-  
-  <h2>Add a post about a horror movie here!</h2>
+    
+<div class="container">
+    <h2>Add a post about a horror movie here!</h2>
 
     <form action="/post/allPosts" method="POST">
+        <fieldset class="content__main">
+            <Label>Blog title:<input type="text" name="title" placeholder="Title" /></Label>
 
-        <Label>Blog title:<input type="text" name="title" placeholder="Title" /></Label>
-
-        <Label>Blog content:<input type="text" name="body" placeholder="Type blog post here" /></Label>
-        <div th:object="${genre}">
-            <select name="genreId">
-                <option value="" disabled selected hidden>Select a Genre...</option>
-                <option th:each="genre : ${genre}" th:value="${genre.id}" th:text="${genre.genreName}">
-                    Genre</option>
-            </select>
-        </div>
-        <div th:object="${tag}">
-            <select name="tagId">
-                <option value="" disabled selected hidden>Select a Tag...</option>
-                <option th:each="tag : ${tag}" th:value="${tag.id}" th:text="${tag.tagName}">
-                    Tag</option>
-            </select>
-        </div>
-        <div th:object="${author}">
-            <select name="authorId">
-                <option value="" disabled selected hidden>Select an Author...</option>
-                <option th:each="author : ${author}" th:value="${author.id}" th:text="${author.authorName}">
-                    Author</option>
-            </select>
-        </div>
-        <div th:object="${author}">
-                <select name="authorId2">
+            <Label>Blog content:<input type="text" name="body" placeholder="Type blog post here" /></Label>
+        </fieldset>
+        <fieldset class="content__classification">
+            <div th:object="${genre}">
+                <select name="genreId">
+                    <option value="" disabled selected hidden>Select a Genre...</option>
+                    <option th:each="genre : ${genre}" th:value="${genre.id}" th:text="${genre.genreName}">
+                        Genre</option>
+                </select>
+            </div>
+            <div th:object="${tag}">
+                <select name="tagId">
+                    <option value="" disabled selected hidden>Select a Tag...</option>
+                    <option th:each="tag : ${tag}" th:value="${tag.id}" th:text="${tag.tagName}">
+                        Tag</option>
+                </select>
+            </div>
+            <div th:object="${author}">
+                <select name="authorId">
                     <option value="" disabled selected hidden>Select an Author...</option>
                     <option th:each="author : ${author}" th:value="${author.id}" th:text="${author.authorName}">
                         Author</option>
                 </select>
             </div>
-        <input type="submit" name="submit" value="submit">
+        </fieldset>
+        <button type="submit">SUBMIT YOUR POST</button>
 
     </form>
 
     <h2>Check out these past posts to find your next bloody good movie.</h2>
+    <article>
+        <ul th:each="post : ${post}">
+            <figure>
+                <li class="movie-cover">
+                    <img src="../../images/blood.png" alt="placeholder">
+                </li>
+            </figure>
+            <li>
+                <h3>
+                    <a th:text="${post.title}" th:href="@{|/post/${post.id}|}">Default title
+                    </a>
+                </h3>
+            </li>
+            <li>
+                <h4 th:text="${post.body}">Default body</h4>
+            </li>
+            <ul th:each="author : ${post.authors}">
+                <li th:text="${author.authorName}">Default tag</li>
+            </ul>
+            <li>
+                <h4 th:text="${post.genre}">Default genre</h4>
+            </li>
+            <ul th:each="tag : ${post.tags}">
+                <li th:text="${tag.tagName}">Default tag</li>
+            </ul>
+            <li>
+                <h4 th:text="${post.date}">Default</h4>
+            </li>
+        </ul>
+    </article>
+</div>
 
-    <ul th:each="post : ${post}">
-
-        <li>
-            <h3><a th:text="${post.title}" th:href="@{|/post/${post.id}|}">Default title</a></h3>
-        </li>
-        <li>
-            <h4 th:text="${post.body}">Default body</h4>
-        </li>
-        <li>
-            <h4 th:text="${post.authors}">Default author</h4>
-        </li>
-        <li>
-            <h4 th:text="${post.genre}">Default genre</h4>
-        </li>
-        <li>
-            <h4 th:text="${post.tag}">Default tag</h4>
-        </li>
-        <li>
-            <h4 th:text="${post.date}">Default</h4>
-        </li>
-    </ul>
-  
     <footer class="footer">
         <div class="footer__content">
             <p>This site was made using Visual Studio Code,
@@ -94,4 +100,5 @@
     </footer>
 
 </body>
+
 </html>

@@ -80,13 +80,18 @@ public class Post {
 	public Genre getGenre() {
 		return genre;
 	}
-
-//	public Collection<Tag> getTags() {
-//		return tags;
-//	}
 	
 	public Collection<Tag> getTag() {
 		return tags;
+	}
+	
+	public void addTagToTags(Tag tag) {
+		tags.add(tag);
+	}
+	
+	public void addAuthorToAuthors(Author author) {
+		authors.add(author);
+		
 	}
 
 	@Override
@@ -94,6 +99,7 @@ public class Post {
 		return "Post title: " + title + ", body=" + body + ", date=" + formattedStringDate + ", authors=" + authors
 				+ ", genre=" + genre + ", tags=" + tags;
 	}
+
 
 
 	
