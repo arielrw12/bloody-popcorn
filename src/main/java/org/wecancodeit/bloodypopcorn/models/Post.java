@@ -43,13 +43,13 @@ public class Post {
 		this.authors = Arrays.asList(authors);
 	}
 
-	// BELOW WILL PROBABLY NEED REMOVED......................
-	public Post(String title2, String body2) {
-		// TODO Auto-generated constructor stub
-	}
 
 	public LocalDateTime getDate() {
 		return date;
+	}
+	
+	public String formatLocalDateTime() {
+		
 	}
 
 	public Collection<Tag> getTags() {
