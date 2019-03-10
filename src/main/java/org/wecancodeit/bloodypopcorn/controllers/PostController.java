@@ -48,8 +48,7 @@ public class PostController {
 		Genre genre = genreRepo.findById(genreId).get();
 		Tag tag = tagRepo.findById(tagId).get();
 		Author author = authorRepo.findById(authorId).get();
-		Author author2 = authorRepo.findById(authorId2).get();
-		postRepo.save(new Post(title, body, genre, tag, author, author2));
+		postRepo.save(new Post(title, body, genre, tag, author));
 		return "redirect:/post/allPosts";	
 	}
 	
