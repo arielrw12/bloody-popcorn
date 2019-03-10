@@ -1,72 +1,66 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <h2>Add a post about a horror movie here!</h2>
 
-    <!-- th:action=@{|/post/${allPosts}|}--> 
+    <!-- th:action=@{|/post/${allPosts}|}-->
 
     <form action="/post/allPosts" method="POST">
-       
+
         <Label>Blog title:<input type="text" name="title" placeholder="Title" /></Label>
-                        
+
         <Label>Blog content:<input type="text" name="body" placeholder="Type blog post here" /></Label>
-
-        <!-- Add LocalDateTime if that's how it works? -->
-
-        <fieldset>
-            <label>Select Authors
-                <select name="author">  
-              <!--   multiple="multiple" goes in above line-->
-                    <option th:each="author : ${authors}" 
-                        th:value="${author.id}" 
-                        th:text="#{${author.authorName}}">Author</option>
-               <!--  above line is experimental with # -->
-                </select>
-            </label>
-        </fieldset>
-        
-        <fieldset>
-            <label>Select Genre
-                <select name="genre">  
-                    <option th:each="genre : ${genres}" 
-                        th:value="${id}" 
-                        th:text="${genreName}">Genre</option>
-                </select>
-            </label>
-        </fieldset>
-
-        <fieldset>
-            <label>Select Tags
-                <select name="tag">  
-              <!--   multiple="multiple" goes in above line -->
-                    <option th:each="tag : ${tags}" 
-                        th:value="${tag.id}" 
-                        th:text="${tag.tagName}">Tag</option>
-                </select>
-            </label>
-        </fieldset>
-
-        <Label>Insert date:<input type="datetime-local" name="date" /></Label>
-
-        <button type="submit">SUBMIT BLOG POST</button>
-                  
+        <div th:object="${genre}">
+            <select name="genreId">
+                <option th:each="genre : ${genre}" th:value="${genre.id}" th:text="${genre.genreName}">
+                    Genre</option>
+            </select>
+        </div>
+        <div th:object="${tag}">
+            <select name="tagId">
+                <option th:each="tag : ${tag}" th:value="${tag.id}" th:text="${tag.tagName}">
+                    Tag</option>
+            </select>
+        </div>
+        <div th:object="${author}">
+            <select name="authorId">
+                <option th:each="author : ${author}" th:value="${author.id}" th:text="${author.authorName}">
+                    Author</option>
+            </select>
+        </div>
+        <input type="submit" name="submit" value="submit">
     </form>
 
     <h2>Check out these past posts to find your next bloody good movie.</h2>
 
     <ul th:each="post : ${post}">
-        <li><h3><a th:text="${post.title}" th:href="@{|/post/${post.id}|}">Default title</a></h3></li>
-        <li><h4 th:text="${post.body}">Default body</h4></li>
-        <li><h4 th:text="${post.authors}">Default author</h4></li>
-        <li><h4 th:text="${post.genre}">Default genre</h4></li>
-        <li><h4 th:text="${post.tag}">Default tag</h4></li>
-        <li><h4 th:text="${post.date}">Default</h4></li>
+        <li>
+            <h3><a th:text="${post.title}" th:href="@{|/post/${post.id}|}">Default title</a></h3>
+        </li>
+        <li>
+            <h4 th:text="${post.body}">Default body</h4>
+        </li>
+        <li>
+            <h4 th:text="${post.authors}">Default author</h4>
+        </li>
+        <li>
+            <h4 th:text="${post.genre}">Default genre</h4>
+        </li>
+        <li>
+            <h4 th:text="${post.tag}">Default tag</h4>
+        </li>
+        <li>
+            <h4 th:text="${post.date}">Default</h4>
+        </li>
     </ul>
 </body>
+
 </html>
