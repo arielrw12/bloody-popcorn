@@ -9,22 +9,33 @@
     <title>Document</title>
 </head>
 
+
 <body>
-    <header class="header__main">
-        <a href="/" class="header__site-name">BLOODY&nbsp;POPCORN</a></h1>
-        <nav class="header__nav">
-            <ul class="header__nav--items">
-                <li class="header__nav-post"><a href="/post/allPosts">All Posts</a></li>
-                <li class="header__nav-genre"><a href="/genre/allGenres">Posts by Genre</a></li>
-                <li class="header__nav-author"><a href="/author/allAuthors">Posts by Author</a></li>
-                <li class="header__nav-tag"><a href="/tags/allTags">Posts by Tag</a></li>
-            </ul>
-        </nav>
-    </header>
-    <a href="/author/allAuthors">See all Authors</a>
-    <a href="/genre/allGenres">See all Genres</a>
-    <a href="/tags/allTags">See all tags</a>
-    <a href="/post/allPosts">See all posts</a>
+<div class="container-body-mainPage">
+    
+    <main>
+    <div class="container-main-mainPage">
+        <section class="title-lines">
+            <h1>Bloody Popcorn</h1>
+            <h2>A horror movie blog (Enter if you dare)</h2>
+        </section>
+
+        <section class="text-all-posts">
+                <h2><a href="/post/allPosts">See all blog posts or add a post</a></h2>
+        </section>
+
+        <section class="mainPage-text">
+            <h3>Search posts by:</h3>
+            <div class="text-search-choices">
+        	    <h4><a href="/author/allAuthors">Author</a></h4>
+        	    <h4><a href="/genre/allGenres">Genre</a></h4>
+        	    <h4><a href="/tags/allTags">Tag</a></h4>
+            </div>
+        </section>
+	</div>
+    </main>
+    
+
     <footer class="footer">
         <div class="footer__content">
             <p>This site was made using Visual Studio Code,
@@ -32,6 +43,7 @@
             <p>© 2019 Made in the USA</p>
         </div>
     </footer>
+</div>
 </body>
 
 </html>
