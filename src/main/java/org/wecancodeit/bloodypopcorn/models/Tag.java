@@ -42,7 +42,7 @@ public class Tag {
 
 	@Override
 	public String toString() {
-		return "Tag [id=" + id + ", tagName=" + tagName + "]";
+		return "Tag : " + tagName;
 	}
 	
 	

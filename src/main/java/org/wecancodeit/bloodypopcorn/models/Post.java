@@ -1,6 +1,7 @@
 package org.wecancodeit.bloodypopcorn.models;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -21,6 +22,7 @@ public class Post {
 	@Lob
 	private String body;
 	private LocalDateTime date;
+	private String formattedStringDate;
 	@ManyToMany
 	private Collection<Author> authors;
 	
@@ -38,18 +40,21 @@ public class Post {
 		this.title = title;
 		this.body = body;
 		this.date = LocalDateTime.now();
+		this.formattedStringDate = formattedStringDate;
 		this.genre = genre;
 		this.tags = Arrays.asList(tag); 
 		this.authors = Arrays.asList(authors);
 	}
 
-	// BELOW WILL PROBABLY NEED REMOVED......................
-	public Post(String title2, String body2) {
-		// TODO Auto-generated constructor stub
-	}
-
 	public LocalDateTime getDate() {
 		return date;
+	}
+	
+	public String getFormattedStringDate() {
+		LocalDateTime currentDateTime = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm");
+		String formattedStringDate = currentDateTime.format(formatter);
+		return formattedStringDate;
 	}
 
 	public Collection<Tag> getTags() {
@@ -86,8 +91,8 @@ public class Post {
 
 	@Override
 	public String toString() {
-		return "Post [id=" + id + ", title=" + title + ", body=" + body + ", date=" + date + ", authors=" + authors
-				+ ", genre=" + genre + ", tags=" + tags + "]";
+		return "Post title: " + title + ", body=" + body + ", date=" + formattedStringDate + ", authors=" + authors
+				+ ", genre=" + genre + ", tags=" + tags;
 	}
 
 
