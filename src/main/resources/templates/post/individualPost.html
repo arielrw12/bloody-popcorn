@@ -60,7 +60,7 @@
     <h3>Add another author to this post!</h3>
     <form th:action="@{|/post/${post.id}|}" method="POST">
         <select name="authorId">
-            <option value="" disabled selected hidden>Select a Tag...</option>
+            <option value="" disabled selected hidden>Select an Author...</option>
             <option th:each="author : ${author}" th:value="${author.id}" th:text="${author.authorName}">
                 Author</option>
         </select>
