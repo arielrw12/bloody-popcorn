@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+
 @Entity
 public class Tag {
 	
@@ -19,9 +20,8 @@ public class Tag {
 	@ManyToMany(mappedBy="tags")
 	private Collection<Post> posts;
 	
-	public Tag(String tagName, Post ...posts) {
+	public Tag(String tagName) {
 		this.tagName = tagName;
-		this.posts = Arrays.asList(posts);
 	}
 	
 	public Tag() {
@@ -44,6 +44,5 @@ public class Tag {
 	public String toString() {
 		return "Be warned... This movie is tagged as: " + tagName;
 	}
-	
 	
 }

@@ -47,10 +47,6 @@ public class Post {
 	public LocalDateTime getDate() {
 		return date;
 	}
-	
-	public String formatLocalDateTime() {
-		
-	}
 
 	public Collection<Tag> getTags() {
 		return tags;
@@ -75,13 +71,18 @@ public class Post {
 	public Genre getGenre() {
 		return genre;
 	}
-
-//	public Collection<Tag> getTags() {
-//		return tags;
-//	}
 	
 	public Collection<Tag> getTag() {
 		return tags;
+	}
+	
+	public void addTagToTags(Tag tag) {
+		tags.add(tag);
+	}
+	
+	public void addAuthorToAuthors(Author author) {
+		authors.add(author);
+		
 	}
 
 	@Override
@@ -89,6 +90,7 @@ public class Post {
 		return "Post [id=" + id + ", title=" + title + ", body=" + body + ", date=" + date + ", authors=" + authors
 				+ ", genre=" + genre + ", tags=" + tags + "]";
 	}
+
 
 
 	

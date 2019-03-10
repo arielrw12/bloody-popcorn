@@ -55,8 +55,26 @@ public class PostController {
 	@GetMapping("/post/{postId}")
 	public String getPostById(@PathVariable Long postId, Model model) {
 		model.addAttribute("post", postRepo.findById(postId).get());
-		return "post/individualPost";
+		model.addAttribute("tag", tagRepo.findAll());
+		model.addAttribute("author", authorRepo.findAll());
+		return "/post/individualPost";
 	}
-			
-			
+	
+	@PostMapping("/post/{postId}")
+	public String addAuthorToAuthorsOrTagToTags(@PathVariable Long postId, Long tagId, Long authorId) {
+		Post post = postRepo.findById(postId).get();
+		
+		if (tagId == null) {
+			Author author = authorRepo.findById(authorId).get();
+			post.addAuthorToAuthors(author);
+			postRepo.save(post);
+		} else if (authorId == null) {
+			Tag tag = tagRepo.findById(tagId).get();
+			post.addTagToTags(tag);
+			postRepo.save(post);
+		}
+		return "redirect:/post/" + postId;
+	}
 }
+	
+
