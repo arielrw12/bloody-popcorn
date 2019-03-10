@@ -10,7 +10,8 @@
 </head>
 
 <body>
-    <header class="header__main">
+
+   <header class="header__main">
         <a href="/" class="header__site-name">BLOODY&nbsp;POPCORN</a></h1>
         <nav class="header__nav">
             <ul class="header__nav--items">
@@ -21,27 +22,58 @@
             </ul>
         </nav>
     </header>
+  
+  <h2>Add a post about a horror movie here!</h2>
+
+    <form action="/post/allPosts" method="POST">
+
+        <Label>Blog title:<input type="text" name="title" placeholder="Title" /></Label>
+
+        <Label>Blog content:<input type="text" name="body" placeholder="Type blog post here" /></Label>
+        <div th:object="${genre}">
+            <select name="genreId">
+                <option th:each="genre : ${genre}" th:value="${genre.id}" th:text="${genre.genreName}">
+                    Genre</option>
+            </select>
+        </div>
+        <div th:object="${tag}">
+            <select name="tagId">
+                <option th:each="tag : ${tag}" th:value="${tag.id}" th:text="${tag.tagName}">
+                    Tag</option>
+            </select>
+        </div>
+        <div th:object="${author}">
+            <select name="authorId">
+                <option th:each="author : ${author}" th:value="${author.id}" th:text="${author.authorName}">
+                    Author</option>
+            </select>
+        </div>
+        <input type="submit" name="submit" value="submit">
+    </form>
+
+    <h2>Check out these past posts to find your next bloody good movie.</h2>
+
     <ul th:each="post : ${post}">
         <li>
-            <h2 th:text="${post.title}"></h2>
+            <h3><a th:text="${post.title}" th:href="@{|/post/${post.id}|}">Default title</a></h3>
         </li>
         <li>
-            <h3 th:text="${post.body}"></h3>
+            <h4 th:text="${post.body}">Default body</h4>
         </li>
         <li>
-            <h3 th:text="${post.authors}"></h3>
-        </li>
-        <!-- <li><h3 th:text="${post.date}"></h3></li> -->
-        <li>
-            <h3 th:text="${post.genre}"></h3>
+            <h4 th:text="${post.authors}">Default author</h4>
         </li>
         <li>
-            <h3 th:text="${post.tag}"></h3>
+            <h4 th:text="${post.genre}">Default genre</h4>
         </li>
         <li>
-            <h3 th:text="${post.date}">Default</h3>
+            <h4 th:text="${post.tag}">Default tag</h4>
+        </li>
+        <li>
+            <h4 th:text="${post.date}">Default</h4>
         </li>
     </ul>
+  
     <footer class="footer">
         <div class="footer__content">
             <p>This site was made using Visual Studio Code,

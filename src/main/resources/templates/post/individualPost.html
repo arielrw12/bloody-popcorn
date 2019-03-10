@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="/css/home.css">
-    <title>Document</title>
+    <title>Individual Post</title>
 </head>
 
 <body>
-    <header class="header__main">
+  
+      <header class="header__main">
         <a href="/" class="header__site-name">BLOODY&nbsp;POPCORN</a></h1>
         <nav class="header__nav">
             <ul class="header__nav--items">
@@ -21,6 +22,16 @@
             </ul>
         </nav>
     </header>
+  
+    <ul>
+        <li><h2 th:text="${post.title}">Default title</h2></li>
+        <li><h3 th:text="${post.body}">Default body</h3></li>
+        <li><h3 th:text="${post.authors}">Default author</h3></li>
+        <li><h3 th:text="${post.genre}">Default genre</h3></li>
+        <li><h3 th:text="${post.tag}">Default tag</h3></li>
+        <li><h3 th:text="${post.date}">Default</h3></li>
+    </ul>
+
     <footer class="footer">
         <div class="footer__content">
             <p>This site was made using Visual Studio Code,
