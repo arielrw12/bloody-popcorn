@@ -36,7 +36,7 @@
                     <h2 th:text="${post.title}">Default title</h2>
                 </li>
                 <li>
-                    <h3 th:text="${#strings.substring(post.body,0,300)}">Default</h3><h3>...</h3>
+                    <h3 th:text="${post.body}">Default</h3>
                 </li>
                 <div class="post-details">
                 <section>
