@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    margin: 4rem 7rem auto 7rem;
+    /* text-align: center; */
+    position: relative;
+    padding-bottom: 10rem;
+}
+
+.container__add {
+    margin-bottom: 3rem;
+    background-color: rgba(80, 0, 0, .9);
+}
+
+.content__main {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+select {
+    width: 250px;
+    margin: 10px;
+}
+
+select:focus {
+    min-width: 250px;
+    width: auto;
+}
+
+label {
+    padding-left: 10px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 5px;
+}
+
+/* .movie-cover {
+    height: 200px;
+    width: 150px;
+    overflow: hidden;
+    border-style: solid;
+    border-width: .5px;   
+} */
+
+article {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    margin-top: 2rem;
+}
+
+h2 {
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+label {
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.posts {
+    border-style: solid;
+    border-width: 2px;
+    background-color: rgba(80, 0, 0, .9);
+}
+
+li {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+}
+
+.title {
+    align-self: center;
+}

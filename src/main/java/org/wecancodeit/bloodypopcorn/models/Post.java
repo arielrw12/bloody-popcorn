@@ -1,6 +1,7 @@
 package org.wecancodeit.bloodypopcorn.models;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -21,6 +22,7 @@ public class Post {
 	@Lob
 	private String body;
 	private LocalDateTime date;
+	private String formattedStringDate;
 	@ManyToMany
 	private Collection<Author> authors;
 	
@@ -38,6 +40,7 @@ public class Post {
 		this.title = title;
 		this.body = body;
 		this.date = LocalDateTime.now();
+		this.formattedStringDate = formattedStringDate;
 		this.genre = genre;
 		this.tags = Arrays.asList(tag); 
 		this.authors = Arrays.asList(authors);
@@ -45,6 +48,13 @@ public class Post {
 
 	public LocalDateTime getDate() {
 		return date;
+	}
+	
+	public String getFormattedStringDate() {
+		LocalDateTime postDateTime = date;
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm");
+		String formattedStringDate = postDateTime.format(formatter);
+		return formattedStringDate;
 	}
 
 	public Collection<Tag> getTags() {
@@ -70,20 +80,26 @@ public class Post {
 	public Genre getGenre() {
 		return genre;
 	}
-
-//	public Collection<Tag> getTags() {
-//		return tags;
-//	}
 	
 	public Collection<Tag> getTag() {
 		return tags;
 	}
+	
+	public void addTagToTags(Tag tag) {
+		tags.add(tag);
+	}
+	
+	public void addAuthorToAuthors(Author author) {
+		authors.add(author);
+		
+	}
 
 	@Override
 	public String toString() {
-		return "Post [id=" + id + ", title=" + title + ", body=" + body + ", date=" + date + ", authors=" + authors
-				+ ", genre=" + genre + ", tags=" + tags + "]";
+		return "Post title: " + title + ", body=" + body + ", date=" + formattedStringDate + ", authors=" + authors
+				+ ", genre=" + genre + ", tags=" + tags;
 	}
+
 
 
 	

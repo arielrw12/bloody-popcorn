@@ -1,12 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/global.css">
+    <link rel="stylesheet" type="text/css" href="/css/individualPage.css">
+    <title>Post</title>
+
 </head>
+
+<div class="container-body">
 <body>
-    
+    <header class="header__main">
+        <a href="/" class="header__site-name">BLOODY&nbsp;POPCORN</a></h1>
+        <nav class="header__nav">
+            <ul class="header__nav--items">
+                <li class="header__nav-post"><a href="/post/allPosts">All Posts</a></li>
+                <li class="header__nav-genre"><a href="/genre/allGenres">Posts by Genre</a></li>
+                <li class="header__nav-author"><a href="/author/allAuthors">Posts by Author</a></li>
+                <li class="header__nav-tag"><a href="/tags/allTags">Posts by Tag</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+    <article class="individualPost-section">
+        <div>
+        <ul class="postList">
+            <div>
+            <section>
+                <li>
+                    <h2 th:text="${post.title}">Default title</h2>
+                </li>
+                <li>
+                    <h3 th:text="${post.body}">Default</h3>
+                </li>
+                <div class="post-details">
+                <section>
+                    <ul th:each="author : ${post.authors}">
+                        <h3><li th:text="${author.authorName}">Default</li></h3>
+                    </ul>
+                    <li>
+                        <h3 th:text="${post.genre}">Default</h3>
+                    </li>
+                    <ul th:each="tag : ${post.tags}">
+                        <h3><li th:text="${tag.tagName}">Default</li></h3>
+                    </ul>
+                    <li>
+                        <h3 th:text="${post.formattedStringDate}">Default</h3>
+                    </li>
+                </section>
+                </div>
+            </section>
+            </div>
+        </ul>
+        </div>
+    <!-- </article> -->
+
+
+    <div class="individualPost-addons">
+    <section>
+    <h3>Add another tag to this post!</h3>
+        <form th:action="@{|/post/${post.id}|}" method="POST">
+            <select name="tagId">
+                <option value="" disabled selected hidden>Select a Tag...</option>
+                <option th:each="tag : ${tag}" th:value="${tag.id}" th:text="${tag.tagName}">
+                    Tag</option>
+            </select>
+
+            <input type="submit" name="submit" value="submit">
+        </form>
+
+        <h3>Add another author to this post!</h3>
+        <form th:action="@{|/post/${post.id}|}" method="POST">
+            <select name="authorId">
+                <option value="" disabled selected hidden>Select an Author...</option>
+                <option th:each="author : ${author}" th:value="${author.id}" th:text="${author.authorName}">
+                    Author</option>
+            </select>
+
+            <input type="submit" name="submit" value="submit">
+        </form>
+    </section>
+    </div>
+    </article>
+    </main>
+
+    <div class="container-footer">
+    <footer class="indlPost-footer">
+        <div class="footer__content">
+            <p>This site was made using Visual Studio Code,
+                Sublime and Gimp. <br>Icons are by <a href="https://fontawesome.com/">Font Awesome.</a></p>
+            <p>© 2019 Made in the USA</p>
+        </div>
+    </footer>
+    </div>
 </body>
+</div>
+
 </html>

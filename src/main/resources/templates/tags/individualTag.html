@@ -5,19 +5,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/css/global.css">
+    <link rel="stylesheet" type="text/css" href="/css/individualPage.css">
     <title>Document</title>
 </head>
 
+<div class="container-body">
 <body>
-    <ul th:each="post : ${tag.posts}">
-        <li>
-            <h2 th:text="${post.title}"></h2>
-        </li>
-        <li><h3 th:text="${post.body}"></h3></li>
-        <li><h3 th:text="${post.postDate}"></h3></li>
-        <li><h3 th:text="${post.authors}"></h3></li>
+    <header class="header__main">
+        <a href="/" class="header__site-name">BLOODY&nbsp;POPCORN</a></h1>
+        <nav class="header__nav">
+            <ul class="header__nav--items">
+                <li class="header__nav-post"><a href="/post/allPosts">All Posts</a></li>
+                <li class="header__nav-genre"><a href="/genre/allGenres">Posts by Genre</a></li>
+                <li class="header__nav-author"><a href="/author/allAuthors">Posts by Author</a></li>
+                <li class="header__nav-tag"><a href="/tags/allTags">Posts by Tag</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    </ul>
+    <main>
+    <article>
+        <div>
+        <h1 th:text="${tag.tagName}"></h1>
+        <ul th:each="post : ${tag.posts}" class="postList">
+            <div class="individualPost-section">
+            <section>
+                <li>
+                    <h2><a th:text="${post.title}" th:href="@{|/post/${post.id}|}">Default</a></h2>
+                </li>
+                <li><h3 th:text="${post.body}">Default</h3></li>
+                <div class="post-details">
+                    <section>
+                        <li><h3 th:text="${post.authors}">Default</h3></li>
+                        <li><h3 th:text="${post.genre}">Default</h3></li>
+                        <li><h3 th:text="${post.formattedStringDate}">Default</h3></li>
+                    </section>
+                </div>
+            </section>
+            </div>
+        </ul>
+        </div>
+    </article>
+    </main>
+
+    <div class="container-footer">
+    <footer class="indlPost-footer">
+        <div class="footer__content">
+            <p>This site was made using Visual Studio Code,
+                Sublime and Gimp. <br>Icons are by <a href="https://fontawesome.com/">Font Awesome.</a></p>
+            <p>© 2019 Made in the USA</p>
+        </div>
+    </footer>
+    </div>
 </body>
+</div>
 
 </html>

@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+h1 {
+    color: rgb(255, 255, 255);
+}
+
+h2 {
+    color: rgb(255, 255, 255);
+}
+
+body {
+    position: relative;
+}
+
+.container-body {
+    background-image: url(../images/creepy-woods.jpg);
+    min-height: 100%;
+    position: relative;
+    background-attachment: fixed;
+    background-size: cover;
+    /*padding-bottom: 110px;*/
+}
+
+li {
+    list-style: none;
+    background-color: rgba(80, 0, 0, .9);
+}
+
+.header__main {
+    background-image: url("../images/blood.png");
+    background-color: red;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    min-height: 5rem;
+    min-width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.header__nav {
+
+}
+
+.header__nav-author{
+    margin-right: 2rem;
+    background-color: white;
+    border-radius: 15px;
+    padding: 6px;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    font-weight: bold;
+}
+
+.header__nav-genre {
+    margin-right: 2rem;
+    background-color: white;
+    border-radius: 15px;
+    padding: 6px;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    font-weight: bold;
+}
+
+.header__nav--items {
+    margin-right: 3rem;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.header__nav-post {
+    margin-right: 2rem;
+    background-color: white;
+    border-radius: 15px;
+    padding: 6px;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    font-weight: bold;
+}
+
+.header__nav-tag {
+    background-color: white;
+    border-radius: 15px;
+    padding: 6px;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    font-weight: bold;
+}
+
+.header__site-name {
+    margin-left: 2rem;
+    background-color: black;
+    border-radius: 15px;
+    padding: 6px;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    font-weight: bold;
+    font-size: 2rem;
+    color: white;
+    display: inline-block;
+}
+
+@media screen and (max-width: 780px) {
+    .header__nav--items {
+        margin-right: 3rem;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+}
+
+.footer {
+    /* background-image: url("../images/blood.png"); */
+    background-color: #b50303;
+    min-height: 5rem;
+    min-width: 100%;
+    text-align: center; 
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    position: absolute;
+    bottom: 0;
+}
+
+.footer__content {
+    background-color: white;
+    border-radius: 15px;
+    margin: 0;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    padding: 0 6px;
+    font-size: 12px;
+}
+
+
+
+
+
+
