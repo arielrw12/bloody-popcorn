@@ -26,6 +26,7 @@
 
     <main>
     <article>
+        <h1 th:text="${tag.tagName}"></h1>
         <div>
         <ul th:each="post : ${tag.posts}" class="postList">
             <div class="individualPost-section">
