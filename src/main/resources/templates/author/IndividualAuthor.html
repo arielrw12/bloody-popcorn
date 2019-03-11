@@ -27,6 +27,7 @@
     <main>
         <article>
             <div>
+            <h1 th:text="${author.authorName}"></h1>
             <ul th:each="post : ${author.posts}" class="postList">
                 <div class="individualPost-section">
                 <section>
