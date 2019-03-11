@@ -7,4 +7,8 @@ import org.wecancodeit.bloodypopcorn.models.Post;
 @Repository
 public interface PostRepository extends CrudRepository<Post, Long> {
 
+	Post findByTitle(String string);
+	
+	Post getPostById(Long postId);
+
 }
