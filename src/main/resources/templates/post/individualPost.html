@@ -7,12 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" type="text/css" href="/css/global.css">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/css/individualPage.css">
+    <title>Post</title>
 
 </head>
 
+<div class="container-body">
 <body>
-
     <header class="header__main">
         <a href="/" class="header__site-name">BLOODY&nbsp;POPCORN</a></h1>
         <nav class="header__nav">
@@ -25,56 +26,78 @@
         </nav>
     </header>
 
-    <ul>
-        <li>
-            <h2 th:text="${post.title}">Default title</h2>
-        </li>
-        <li>
-            <h3 th:text="${post.body}">Default body</h3>
-        </li>
-        <ul th:each="author : ${post.authors}">
-            <li th:text="${author.authorName}">Default tag</li>
+    <main>
+    <article class="individualPost-section">
+        <div>
+        <ul class="postList">
+            <div>
+            <section>
+                <li>
+                    <h2 th:text="${post.title}">Default title</h2>
+                </li>
+                <li>
+                    <h3 th:text="${#strings.substring(post.body,0,300)}">Default</h3><h3>...</h3>
+                </li>
+                <div class="post-details">
+                <section>
+                    <ul th:each="author : ${post.authors}">
+                        <h3><li th:text="${author.authorName}">Default</li></h3>
+                    </ul>
+                    <li>
+                        <h3 th:text="${post.genre}">Default</h3>
+                    </li>
+                    <ul th:each="tag : ${post.tags}">
+                        <h3><li th:text="${tag.tagName}">Default</li></h3>
+                    </ul>
+                    <li>
+                        <h3 th:text="${post.formattedStringDate}">Default</h3>
+                    </li>
+                </section>
+                </div>
+            </section>
+            </div>
         </ul>
-        <li>
-            <h3 th:text="${post.genre}">Default genre</h3>
-        </li>
-        <ul th:each="tag : ${post.tags}">
-            <li th:text="${tag.tagName}">Default tag</li>
-        </ul>
-        <li>
-            <h3 th:text="${post.date}">Default</h3>
-        </li>
-    </ul>
+        </div>
+    <!-- </article> -->
 
+    <div class="individualPost-addons">
+    <section>
     <h3>Add another tag to this post!</h3>
-    <form th:action="@{|/post/${post.id}|}" method="POST">
-        <select name="tagId">
-            <option value="" disabled selected hidden>Select a Tag...</option>
-            <option th:each="tag : ${tag}" th:value="${tag.id}" th:text="${tag.tagName}">
-                Tag</option>
-        </select>
+        <form th:action="@{|/post/${post.id}|}" method="POST">
+            <select name="tagId">
+                <option value="" disabled selected hidden>Select a Tag...</option>
+                <option th:each="tag : ${tag}" th:value="${tag.id}" th:text="${tag.tagName}">
+                    Tag</option>
+            </select>
 
-        <input type="submit" name="submit" value="submit">
-    </form>
+            <input type="submit" name="submit" value="submit">
+        </form>
 
-    <h3>Add another author to this post!</h3>
-    <form th:action="@{|/post/${post.id}|}" method="POST">
-        <select name="authorId">
-            <option value="" disabled selected hidden>Select an Author...</option>
-            <option th:each="author : ${author}" th:value="${author.id}" th:text="${author.authorName}">
-                Author</option>
-        </select>
+        <h3>Add another author to this post!</h3>
+        <form th:action="@{|/post/${post.id}|}" method="POST">
+            <select name="authorId">
+                <option value="" disabled selected hidden>Select an Author...</option>
+                <option th:each="author : ${author}" th:value="${author.id}" th:text="${author.authorName}">
+                    Author</option>
+            </select>
 
-        <input type="submit" name="submit" value="submit">
-    </form>
+            <input type="submit" name="submit" value="submit">
+        </form>
+    </section>
+    </div>
+    </article>
+    </main>
 
-    <footer class="footer">
+    <div class="container-footer">
+    <footer class="indlPost-footer">
         <div class="footer__content">
             <p>This site was made using Visual Studio Code,
-                Submlime and Gimp. <br>Icons are by <a href="https://fontawesome.com/">Font Awesome.</a></p>
+                Sublime and Gimp. <br>Icons are by <a href="https://fontawesome.com/">Font Awesome.</a></p>
             <p>© 2019 Made in the USA</p>
         </div>
     </footer>
+    </div>
 </body>
+</div>
 
 </html>

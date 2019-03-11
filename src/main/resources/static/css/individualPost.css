@@ -1,0 +1,25 @@
+.indlPost-footer {
+    /* background-image: url("../images/blood.png"); */
+    background-color: #b50303;
+    min-height: 5rem;
+    min-width: 100%;
+    text-align: center; 
+   /* position: relative;*/
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    /*position: absolute;*/
+    bottom: 0;
+}
+
+.container-footer__content {
+    background-color: white;
+    border-radius: 15px;
+    margin: 0;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    padding: 0 6px;
+    font-size: 12px;
+}
