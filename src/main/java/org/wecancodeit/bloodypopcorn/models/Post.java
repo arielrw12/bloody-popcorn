@@ -51,9 +51,9 @@ public class Post {
 	}
 	
 	public String getFormattedStringDate() {
-		LocalDateTime currentDateTime = LocalDateTime.now();
+		LocalDateTime postDateTime = date;
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm");
-		String formattedStringDate = currentDateTime.format(formatter);
+		String formattedStringDate = postDateTime.format(formatter);
 		return formattedStringDate;
 	}
 
