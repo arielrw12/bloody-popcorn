@@ -5,6 +5,11 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+a {
+    font-size: 30px;
+    font-weight: bold;
+}
+
 .container {
     margin: 4rem 7rem auto 7rem;
     /* text-align: center; */
@@ -63,6 +68,10 @@ article {
 h2 {
     text-align: center;
     color: rgb(255, 255, 255);
+}
+
+h4 {
+    color: white;
 }
 
 label {
