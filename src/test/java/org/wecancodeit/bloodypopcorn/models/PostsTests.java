@@ -33,16 +33,5 @@ public class PostsTests {
 		System.out.println(post1.getTags().contains(tag2));
 		assertEquals(post1.getTag().contains(tag2), true);
 	}
-	
-//	@Test
-//	public void shouldReturn2Tags() {
-//		Genre genre1 = new Genre("Slasher");
-//		Author author1 = new Author("Jane");
-//		Tag tag1 = new Tag("gory");
-//		Tag tag2 = new Tag("cheap");
-//		Post post1 = new Post("Movie", "Bodybodybody", genre1, tag1, author1);
-//		post1.addTagToTags(tag2);
-//		assertEquals(post1.getTag().size(), 2);
-//	}
 
 }

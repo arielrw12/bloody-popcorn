@@ -31,7 +31,10 @@
 
             <form action="/post/allPosts" method="POST" id="addpost">
                 <fieldset class="content__main">
+
                     <Label>Blog Title<input type="text" style="width:92%" name="title" /></Label>
+                    <!-- <Label>Thoughts<input type="text" style="width:92%" name="body" /></Label> -->
+
                     <Label>What did you think?<textarea name="body" id="addpost" cols="118"></textarea></Label>
                 </fieldset>
                 <fieldset class="content__classification">
@@ -57,7 +60,7 @@
                         </select>
                     </div>
                 </fieldset>
-                <button type="submit">SUBMIT YOUR POST</button>
+                <button type="submit" value="submit">SUBMIT YOUR POST</button>
             </form>
         </section>
 
@@ -76,7 +79,8 @@
                     </li>
                 </figure> -->
                 <li>
-                    <h4 th:text="${#strings.substring(post.body,0,100)}" class="body">Default body</h4><h4>...</h4>
+                    <!-- <h4 th:text="${#strings.substring(post.body,0,100)}" class="body">Default body</h4><h4>...</h4> -->
+                    <h4 th:text="${post.body}" class="body">Default</h4>
                 </li>
                 <h3>Post authors:</h3>
                 <ul th:each="author : ${post.authors}">
