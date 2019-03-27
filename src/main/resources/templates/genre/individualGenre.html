@@ -37,8 +37,12 @@
 					<li><h3 th:text="${post.body}">Default</h3></li>
 					<div class="post-details">
 					<section>
-						<li><h3 th:text="${post.authors}">Default</h3></li>
-				        <li><h3 th:text="${post.tags}">Default</h3></li>
+						<li th:each= "author : ${post.authors}">
+							<h3 th:text="${author.authorName}">Default</h3>
+						</li>
+				        <li th:each= "tag : ${post.tags}">
+				        	<h3 th:text="${tag.tagName}">Default</h3>
+				        </li>
 				        <li><h3 th:text="${post.formattedStringDate}">Default</h3></li>
 				    </section>
 				    </div>

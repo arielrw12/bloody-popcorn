@@ -10,12 +10,12 @@ a {
 }
 
 h1 {
-    color: rgb(255, 255, 255);
+    /* color: rgb(255, 255, 255); */
 }
-
+/* 
 h2 {
     color: rgb(255, 255, 255);
-}
+} */
 
 body {
     position: relative;
@@ -32,7 +32,7 @@ body {
 
 li {
     list-style: none;
-    background-color: rgba(80, 0, 0, .9);
+    /* background-color: rgba(255, 255, 255, .7); */
 }
 
 .header__main {
@@ -127,6 +127,10 @@ li {
         flex-direction: column;
         justify-content: space-evenly;
     }
+}
+
+.main__post-body-background {
+    /* background-color: rgba(255, 255, 255, .7);  */
 }
 
 .footer {

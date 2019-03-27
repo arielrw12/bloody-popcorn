@@ -27,7 +27,7 @@
 
     <div class="container">
         <section class="container__add">
-            <h2>Add a post about a horror movie here!</h2>
+            <h2 class="addPost__title">Add a post about a horror movie here!</h2>
 
             <form action="/post/allPosts" method="POST" id="addpost">
                 <fieldset class="content__main">
@@ -64,7 +64,7 @@
             </form>
         </section>
 
-        <h2>Check out these past posts to find your next bloody good (or bad) movie!</h2>
+        <h2 class="main__list-title">Check out these past posts to find your next bloody good (or bad) movie!</h2>
         <article>
             <ul th:each="post : ${post}" class="posts">
                 <li>
@@ -73,11 +73,7 @@
                         </a>
                     </h3>
                 </li>
-                <!-- <figure>
-                    <li class="movie-cover">
-                        <img src="../images/placeholder.jpg" alt="placeholder">
-                    </li>
-                </figure> -->
+               
                 <li>
                     <!-- <h4 th:text="${#strings.substring(post.body,0,100)}" class="body">Default body</h4><h4>...</h4> -->
                     <h4 th:text="${post.body}" class="body">Default</h4>
