@@ -29,7 +29,7 @@
         
             <ul th:each="genre : ${genre}">
                 <li class="list">
-                    <h2><a th:text="${genre.genreName}" th:href="@{|/genre/${genre.id}|}">Default</a></h2>
+                    <h2><a th:text="${genre.genreName}" th:href="@{|/genre/${genre.id}|}" class="search-by__option">Default</a></h2>
                 </li>
             </ul>
         

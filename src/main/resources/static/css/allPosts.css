@@ -12,14 +12,13 @@ a {
 
 .container {
     margin: 4rem 7rem auto 7rem;
-    /* text-align: center; */
     position: relative;
     padding-bottom: 10rem;
 }
 
 .container__add {
     margin-bottom: 3rem;
-    background-color: rgba(80, 0, 0, .9);
+    background-color: rgba(255, 255, 255, .7);
 }
 
 .content__main {
@@ -49,14 +48,6 @@ button {
     padding: 5px;
 }
 
-/* .movie-cover {
-    height: 200px;
-    width: 150px;
-    overflow: hidden;
-    border-style: solid;
-    border-width: .5px;   
-} */
-
 article {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -67,7 +58,18 @@ article {
 
 h2 {
     text-align: center;
-    color: rgb(255, 255, 255);
+}
+
+h3 {
+    background-color:rgba(255, 255, 255, .7);
+}
+
+.addPost__title {
+    color: black;
+}
+
+.main__list-title {
+    color: white;
 }
 
 h4 {
@@ -82,7 +84,8 @@ label {
 .posts {
     border-style: solid;
     border-width: 2px;
-    background-color: rgba(80, 0, 0, .9);
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, .7);
 }
 
 li {
@@ -92,4 +95,5 @@ li {
 
 .title {
     align-self: center;
+    font-size: 1.5rem;
 }
