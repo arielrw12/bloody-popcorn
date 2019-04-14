@@ -9,12 +9,30 @@ a {
     color: black;
 }
 
+h1 {
+    color: rgb(255, 255, 255);
+}
+
+h2 {
+    color: rgb(255, 255, 255);
+}
+
 body {
     position: relative;
 }
 
+.container-body {
+    background-image: url(../images/creepy-woods.jpg);
+    min-height: 100%;
+    position: relative;
+    background-attachment: fixed;
+    background-size: cover;
+    /*padding-bottom: 110px;*/
+}
+
 li {
     list-style: none;
+    background-color: rgba(80, 0, 0, .9);
 }
 
 .header__main {

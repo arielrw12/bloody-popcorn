@@ -27,13 +27,14 @@
     <main>
     <article>
         <div>
+        <h1 th:text="${tag.tagName}"></h1>
         <ul th:each="post : ${tag.posts}" class="postList">
             <div class="individualPost-section">
             <section>
                 <li>
                     <h2><a th:text="${post.title}" th:href="@{|/post/${post.id}|}">Default</a></h2>
                 </li>
-                <li><h3 th:text="${#strings.substring(post.body,0,400)}">Default</h3><h3>...</h3></li>
+                <li><h3 th:text="${post.body}">Default</h3></li>
                 <div class="post-details">
                     <section>
                         <li><h3 th:text="${post.authors}">Default</h3></li>

@@ -78,11 +78,7 @@ public class Initializer<Body> implements CommandLineRunner {
 				"\r\n" + 
 				"Ignota accommodare mea cu, cu mel tacimates aliquando dissentias, per an probo inani probatus? Legere gubergren an mea, his eu sint singulis pericula. Sea utamur diceret ex, antiopam gloriatur mei ad. Usu euismod denique et? His sint expetenda intellegat cu. Pri in quis vivendum maiestatis.\r\n" + 
 				"\r\n" + 
-				"Meliore persequeris necessitatibus ei quo. Duo ne labitur aliquam albucius, sit officiis dissentiunt at, eam in augue dolore liberavisse? At mei vide dolor petentium, accusata sensibus ne cum! In sit enim putent mentitum, choro aperiam bonorum sed an. Illum aperiri lobortis eu mea, zril veniam vim ea, cum assueverit cotidieque ad?\r\n" + 
-				"\r\n" + 
-				"Sumo brute adversarium sit no, nam veri tibique te? Luptatum pertinax eleifend per no, qui eu malis efficiantur, no tollit offendit has. Numquam definitiones at has! An esse mutat persecuti pri, modus debet vidisse quo eu.\r\n" + 
-				"\r\n" + 
-				"Nibh dictas disputationi ad mel, quod altera urbanitas est no. Id omnesque contentiones est. Id sea omittam perfecto praesent! Duo ad sumo suavitate urbanitas! Vis ad alienum elaboraret, in odio fabulas sit! Exerci invenire vituperata ea qui, id mel veri liber!";
+				"Meliore persequeris necessitatibus ei quo. Duo ne labitur aliquam albucius, sit officiis dissentiunt at, eam in augue dolore liberavisse? At mei vide dolor petentium, accusata sensibus ne cum! In sit enim putent mentitum, choro aperiam bonorum sed an. Illum aperiri lobortis eu mea, zril veniam vim ea, cum assueverit cotidieque ad?";
 		Post post1 = postRepo.save(new Post("Awesome movie", loremIpsum, genre1, tag1, author1, author2));
 		Post post2 = postRepo.save(new Post("Terrible Movie", loremIpsum, genre2, tag2, author1, author4));
 		Post post3 = postRepo.save(new Post("What a plot twist", loremIpsum, genre3, tag3, author3, author5, author2));
