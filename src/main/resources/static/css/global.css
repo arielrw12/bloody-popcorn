@@ -32,7 +32,7 @@ body {
 
 li {
     list-style: none;
-    background-color: rgba(80, 0, 0, .9);
+    background-color: white;
 }
 
 .header__main {
